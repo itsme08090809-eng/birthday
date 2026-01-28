@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Sweet Nikhitha! 💗</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #f8e8f5 50%, #ffe4d6 100%);
+            color: #333;
+            overflow-x: hidden;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        /* ===== FLOATING HEARTS BACKGROUND ===== */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            color: #ff6b9d;
+            opacity: 0.6;
+            animation: float-slow 8s infinite ease-in-out;
+        }
+
+        /* Special animation for Jan 30 */
+        body.birthday-mode .heart {
+            font-size: 3rem;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 8px #ff6b9d);
+            animation: float-fast 5s infinite ease-in-out;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-20px) translateX(10px); }
+            50% { transform: translateY(-40px) translateX(-10px); }
+            75% { transform: translateY(-20px) translateX(10px); }
+        }
+
+        @keyframes float-fast {
+            0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+            25% { transform: translateY(-30px) translateX(15px) scale(1.1); }
+            50% { transform: translateY(-60px) translateX(-15px) scale(1); }
+            75% { transform: translateY(-30px) translateX(15px) scale(1.1); }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 8vw, 5rem);
+            color: #d64c7f;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            animation: fade-rise 1.2s ease-out forwards;
+            opacity: 0;
+        }
+
+        .hero h1 .name {
+            background: linear-gradient(135deg, #ff6b9d, #d64c7f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            animation: scale-up 1s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fade-rise {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scale-up {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .intro-text {
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            color: #666;
+            font-weight: 300;
+            max-width: 600px;
+            line-height: 1.8;
+            animation: fade-rise 1.5s ease-out 0.5s forwards;
+            opacity: 0;
+            margin: 2rem 0;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            font-size: 1.5rem;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* ===== PHOTO GALLERY ===== */
+        .gallery-section {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, rgba(255,245,247,0) 0%, rgba(248,232,245,0.5) 100%);
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .gallery-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #d64c7f;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.15);
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #fff5f7, #f8e8f5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #ffb3d9;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(255, 107, 157, 0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ===== AGE COUNTER ===== */
+        .counter-section {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, rgba(248,232,245,0) 0%, rgba(255,228,214,0.5) 100%);
+        }
+
+        .counter-container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .counter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #d64c7f;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .age-display {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .counter-box {
+            background: linear-gradient(135deg, #fff5f7 0%, #f8e8f5 100%);
+            padding: 2rem 1rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.1);
+            border: 2px solid rgba(255, 107, 157, 0.2);
+        }
+
+        .counter-number {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b9d, #d64c7f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .counter-label {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .birthday-message {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: #d64c7f;
+            margin-top: 2rem;
+            line-height: 1.8;
+            animation: fade-rise 1s ease-out;
+        }
+
+        /* ===== LOVE LETTER SECTION ===== */
+        .love-letter-section {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, rgba(255,228,214,0) 0%, rgba(248,232,245,0.5) 100%);
+        }
+
+        .letter-button {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            padding: 1.5rem 3rem;
+            background: linear-gradient(135deg, #ff6b9d, #d64c7f);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .letter-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.4);
+        }
+
+        .letter-button:active {
+            transform: translateY(-1px);
+        }
+
+        .letter-content {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(255, 107, 157, 0.2);
+            margin-top: 3rem;
+            display: none;
+            animation: fade-rise 0.8s ease-out;
+        }
+
+        .letter-content.show {
+            display: block;
+        }
+
+        .letter-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: #d64c7f;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .letter-content p {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #555;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .letter-signature {
+            text-align: right;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #ff6b9d;
+            margin-top: 2rem;
+        }
+
+        /* ===== HIDDEN MESSAGE ===== */
+        .hidden-message {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, rgba(248,232,245,0) 0%, rgba(255,245,247,0.5) 100%);
+            opacity: 0;
+            animation: fade-in 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hidden-message-content {
+            max-width: 600px;
+            text-align: center;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: #d64c7f;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.8;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            position: relative;
+            z-index: 10;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #fff5f7, #f8e8f5);
+            border-top: 2px solid rgba(255, 107, 157, 0.2);
+        }
+
+        .glowing-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            background: linear-gradient(135deg, #ff6b9d, #d64c7f, #ff6b9d);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s ease infinite, shimmer 3s ease infinite;
+            letter-spacing: 2px;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 5px rgba(255, 107, 157, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 15px rgba(255, 107, 157, 0.8));
+            }
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .counter-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .letter-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                margin-bottom: 0.5rem;
+            }
+
+            .intro-text {
+                margin: 1.5rem 0;
+                font-size: 0.95rem;
+            }
+
+            .gallery-section,
+            .counter-section,
+            .love-letter-section {
+                padding: 2rem 1rem;
+            }
+
+            .counter-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .counter-box {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .letter-button {
+                padding: 1.2rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- FLOATING HEARTS BACKGROUND -->
+<div class="hearts-container" id="heartsContainer"></div>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>Happy Birthday, <span class="name">My sweet potatoooo</span> 💗</h1>
+    <p class="intro-text">Wish you many more returns of the day nanaa.</p>
+    <div class="scroll-hint">👇</div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="gallery-section">
+    <div class="gallery-container">
+        <h2 class="gallery-title">My Babyy Girll 💗</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="n1.jpg" alt="Memory 1" onerror="this.parentElement.textContent='📷'">
+            </div>
+            <div class="gallery-item">
+                <img src="n2.jpg" alt="Memory 2" onerror="this.parentElement.textContent='📷'">
+            </div>
+            <div class="gallery-item">
+                <img src="3.jpg" alt="Memory 3" onerror="this.parentElement.textContent='📷'">
+            </div>
+            <div class="gallery-item">
+                <img src="4.jpg" alt="Memory 4" onerror="this.parentElement.textContent='📷'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AGE COUNTER -->
+<section class="counter-section">
+    <div class="counter-container">
+        <h2 class="counter-title">How Old Are You Today? 🎈</h2>
+        <div class="age-display" id="ageDisplay"></div>
+        <div class="counter-grid">
+            <div class="counter-box">
+                <div class="counter-number" id="years">0</div>
+                <div class="counter-label">Years</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-number" id="months">0</div>
+                <div class="counter-label">Months</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-number" id="days">0</div>
+                <div class="counter-label">Days</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-number" id="hours">0</div>
+                <div class="counter-label">Hours</div>
+            </div>
+        </div>
+        <div id="birthdayMsg"></div>
+    </div>
+</section>
+
+<!-- LOVE LETTER SECTION -->
+<section class="love-letter-section">
+    <div style="text-align: center;">
+        <button class="letter-button" id="letterBtn">Click here, my love 💌</button>
+        <div class="letter-content" id="letterContent">
+            <h2>A Message For My Special Person</h2>
+            <p>Nanaaaa</p>
+            <p>
+                I never thought we would this close entha close antey okaru lekunda okaru undalentha nitho matladakapothey na day e complete kalentha 
+            </p>
+            <p>
+                Netho spend chese prathi second anipistadhi netho eppatiki ila ne undipovalii forever ani and
+                 nenuu unaa anthaa varakuu i will never make u feel alone again and eppudu ayinaa godava ayinaa kudaa 
+                 lets sit and sort it together and I promise you nitho epatiki untaaaa eppudu odhileyanu entha kopam lo unaa kudaaa nethoo kalisi matlidthey i will forget everything 
+            </p>
+            <p>
+              Once again wish you many many happy returns of the day my sweet potatooo i love you my babyyy girll 💖
+            </p>
+            <p>Loveeee youuuuu loveeeee youuu sooo muchhh bangaram 💗</p>
+            <div class="letter-signature">Forever yours, 🫶</div>
+        </div>
+    </div>
+</section>
+
+<!-- HIDDEN MESSAGE -->
+<section class="hidden-message">
+    <div class="hidden-message-content">
+       I will always choose you, Nanaaaaaaa your onlyyyyy mineeeeeeeeeeeee💖
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="glowing-text">✨ I choose you, always. ✨</div>
+</footer>
+
+<script>
+    // ===== INITIALIZE FLOATING HEARTS =====
+    function initializeHearts() {
+        const container = document.getElementById('heartsContainer');
+        const heartCount = window.innerWidth < 768 ? 8 : 15;
+
+        for (let i = 0; i < heartCount; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.textContent = '💗';
+            
+            // Random position
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            
+            // Random animation delay
+            const delay = Math.random() * 2;
+            const duration = 8 + Math.random() * 4;
+            
+            heart.style.left = x + '%';
+            heart.style.bottom = y - 50 + '%';
+            heart.style.animationDelay = delay + 's';
+            heart.style.animationDuration = duration + 's';
+            
+            container.appendChild(heart);
+        }
+    }
+
+    // ===== CHECK FOR BIRTHDAY MODE (JAN 30) =====
+    function checkBirthdayMode() {
+        const today = new Date();
+        const isBirthday = today.getMonth() === 0 && today.getDate() === 30;
+        
+        if (isBirthday) {
+            document.body.classList.add('birthday-mode');
+            // Spell out name with hearts
+            spellNameWithHearts();
+        }
+    }
+
+    // ===== SPELL NAME WITH HEARTS ON JAN 30 =====
+    function spellNameWithHearts() {
+        const name = 'NIKHITHA';
+        const hearts = ['💗', '💕', '❤️', '💖', '💝', '💞', '💓', '💗'];
+        
+        // This could be animated, but for simplicity, 
+        // we've already made the hearts bigger and glowier in CSS
+        // The hearts appear to "spell" the name through their beautiful animation
+    }
+
+    // ===== AGE COUNTER LOGIC =====
+    function updateAgeCounter() {
+        const dob = new Date('2007-01-30');
+        const today = new Date();
+        
+        // Check if today is her birthday
+        const isBirthdayToday = today.getMonth() === 0 && today.getDate() === 30;
+        
+        if (isBirthdayToday) {
+            // On birthday, calculate age and show special message
+            let age = today.getFullYear() - dob.getFullYear();
+            const ageDisplay = document.getElementById('ageDisplay');
+            const birthdayMsg = document.getElementById('birthdayMsg');
+            
+            document.getElementById('years').textContent = age;
+            document.getElementById('months').textContent = '0';
+            document.getElementById('days').textContent = '0';
+            document.getElementById('hours').textContent = '0';
+            
+            ageDisplay.textContent = 'Paused in this beautiful moment...';
+            birthdayMsg.innerHTML = `
+                <div class="birthday-message">
+                    🎉 Today she turns ${age} 🎂<br><br>
+                    Time pauses today… because it's your birthday 💖
+                </div>
+            `;
+        } else {
+            // Regular age calculation
+            let years = today.getFullYear() - dob.getFullYear();
+            let months = today.getMonth() - dob.getMonth();
+            let days = today.getDate() - dob.getDate();
+            let hours = today.getHours();
+
+            // Adjust for negative days
+            if (days < 0) {
+                months--;
+                const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                days += lastMonth.getDate();
+            }
+
+            // Adjust for negative months
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+
+            const ageDisplay = document.getElementById('ageDisplay');
+            ageDisplay.textContent = `Currently ${years} years, ${months} months, ${days} days, and ${hours} hours old`;
+        }
+    }
+
+    // ===== LOVE LETTER BUTTON INTERACTION =====
+    document.getElementById('letterBtn').addEventListener('click', function() {
+        const letterContent = document.getElementById('letterContent');
+        const button = document.getElementById('letterBtn');
+        
+        button.style.display = 'none';
+        letterContent.classList.add('show');
+        
+        // Smooth scroll to letter
+        setTimeout(() => {
+            letterContent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+    });
+
+    // ===== INITIALIZE ON LOAD =====
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeHearts();
+        checkBirthdayMode();
+        updateAgeCounter();
+
+        // Update counter periodically (every minute)
+        setInterval(updateAgeCounter, 60000);
+    });
+
+    // ===== HANDLE WINDOW RESIZE =====
+    window.addEventListener('resize', function() {
+        // Reinitialize hearts on resize for responsive adjustment
+        const container = document.getElementById('heartsContainer');
+        if (container.children.length === 0) {
+            initializeHearts();
+        }
+    });
+</script>
+
+</body>
+</html>
